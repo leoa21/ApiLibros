@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace ApiLibros.Controllers
 {
     [ApiController]
-    [Route("api/autor")]
+    [Route("/autor")]
     public class AutorController : ControllerBase
     {
         private readonly ApplicationDbContext dbContext;
@@ -15,7 +15,7 @@ namespace ApiLibros.Controllers
             this.dbContext = context;
         }
 
-        [HttpGet]
+        [HttpGet("/listado")]
 
         public async Task<ActionResult<List<Autor>>> GetAll()
         {
@@ -27,6 +27,21 @@ namespace ApiLibros.Controllers
         public async Task<ActionResult<Autor>> GetById(int id)
         {
             return await dbContext.Autor.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
+        //[HttpGet("{nombre}/{param?})] ---- Es para un parametro opcional
+
+        [HttpGet("{nombre}")]
+        public async Task<ActionResult<Autor>> Get(string nombre)
+        {
+            var autor = await dbContext.Autor.FirstOrDefaultAsync(x => x.NombreAutor.Contains(nombre));
+
+            if (autor == null)
+            {
+                return NotFound();
+            }
+
+            return autor;
         }
 
         [HttpPost]

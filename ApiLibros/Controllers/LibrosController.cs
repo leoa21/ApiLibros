@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 namespace ApiLibros.Controllers
 {
     [ApiController]
-    [Route("api/libros")]
+    [Route("/libros")]
     public class LibrosController : ControllerBase
     {
         private readonly ApplicationDbContext dbContext;
@@ -16,11 +16,32 @@ namespace ApiLibros.Controllers
         }
 
 
-        [HttpGet]
+        [HttpGet("listado")]
         public async Task<ActionResult<List<Libro>>> Get()
-        {
+        { 
             return await dbContext.Libros.Include(x => x.autor).ToListAsync();
         }
+        
+        [HttpGet("{nombre}")]
+        public async Task<ActionResult<Libro>> Get(string nombre)
+        {
+            var libro = await dbContext.Libros.FirstOrDefaultAsync(x => x.NombreLibro.Contains(nombre));
+
+            if(libro == null)
+            {
+                return NotFound();
+            }
+
+            return libro;
+        }
+
+        [HttpGet("{id:int}")]
+
+        public async Task<ActionResult<Libro>> GetById(int id)
+        {
+            return await dbContext.Libros.FirstOrDefaultAsync(x => x.Id == id);
+        }
+
 
         [HttpPost]
         public async Task<ActionResult> Get(Libro libro)
