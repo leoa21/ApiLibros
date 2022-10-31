@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "P+MHhbVEpseloDHGBxufPCa0hSdctr3+Yh1XFVc9s0I=",
+  "Hash": "cCivYe61yfEsbzJio05CqS0+upION2JdFpBvbuBb5Is=",
   "Source": "ApiLibros",
   "BasePath": "_content/ApiLibros",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "ApiLibros\\wwwroot",
+      "Source": "ApiLibros",
+      "ContentRoot": "C:\\Users\\Leo21\\Documents\\Backend\\ApiLibros\\ApiLibros\\wwwroot\\",
+      "BasePath": "_content/ApiLibros",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\Leo21\\Documents\\Backend\\ApiLibros\\ApiLibros\\wwwroot\\ApiLibros.txt",
+      "SourceId": "ApiLibros",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Leo21\\Documents\\Backend\\ApiLibros\\ApiLibros\\wwwroot\\",
+      "BasePath": "_content/ApiLibros",
+      "RelativePath": "ApiLibros.txt",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\ApiLibros.txt"
+    }
+  ]
 }
